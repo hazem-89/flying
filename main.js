@@ -3,11 +3,15 @@ window,addEventListener('load', main);
 /** @type {HTMLElement} */
 let imageElement;
 
-const speed = .4;
+const speed ={
+    x:  .4,
+    y: .2,
+}
+
 const size = 40;
 const position = {
     let: 0,
-    left: 0
+    top: 0
 }
 function main() {
     imageElement = document.querySelector('img')
@@ -16,9 +20,16 @@ function main() {
 }
 
 function moveBird() {
-    position.left +=  speed;
-    if (position.left > 100) {
-        position.left = -40;
+    position.top +=  speed.x;
+    if (position.top > 100) {
+        position.top = -size;
     }
-    imageElement.style.left = position.left + '%';
+    imageElement.style.left = position.top + '%';
+
+
+    position.top +=  speed.y;
+    if (position.top > 100) {
+        position.top = -size;
+    }
+    imageElement.style.top = position.top + '%';
 }
